@@ -1,4 +1,5 @@
-{{- if isset $.Site.Params "fontsize" }}
+<!-- {{- if isset $.Site.Params "fontsize" }} -->
+{{- if and $.Site.Params (isset $.Site.Params "fontsize") }}
 {{- $expandBreakpoint := default "xxl" site.Params.topAppBar.expandBreakpoint }}
 <li class="nav-item dropdown col-6 col-{{ $expandBreakpoint }}-auto">
     <a class="nav-link px-0 py-2 px-{{ $expandBreakpoint }}-1" href="#" id="fontSizeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

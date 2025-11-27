@@ -13,7 +13,8 @@
   -}}
   {{- with .Site.Params.search.fuse -}}
     {{- range $key, $value := . -}}
-      {{- if isset $fuseOptionWhitelist $key -}}
+      <!-- {{- if isset $fuseOptionWhitelist $key -}} -->
+      {{- if and $fuseOptionWhitelist (isset $fuseOptionWhitelist $key) -}}
         {{- $fuseOptions = merge $fuseOptions (dict (index $fuseOptionWhitelist $key) $value) -}}
       {{- end -}}
     {{- end -}}

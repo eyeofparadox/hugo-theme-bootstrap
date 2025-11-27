@@ -1,5 +1,6 @@
 {{- $funding := .Site.Params.funding }}
-{{- if isset .Params "funding" }}
+<!-- {{- if isset .Params "funding" }} -->
+{{- if and .Params (isset .Params "funding") }}
   {{- $funding = .Params.funding }}
 {{- end }}
 {{- $icons := dict

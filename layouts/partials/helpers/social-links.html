@@ -70,7 +70,8 @@
   {{- end }}
 {{- end }}
 {{- $rss := true }}
-{{- if isset .links "rss" }}
+<!-- {{- if isset .links "rss" }} -->
+{{- if and .links (isset .links "rss") }}
 {{- $rss = ne "" .links.rss }}
 {{- end }}
 {{- if and (default true .params.rss) $rss }}

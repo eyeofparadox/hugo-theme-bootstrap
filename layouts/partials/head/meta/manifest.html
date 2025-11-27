@@ -1,4 +1,5 @@
-{{- if isset .Site.Params "pwa" }}
+<!-- {{- if isset .Site.Params "pwa" }} -->
+{{- if and .Site.Params (isset .Site.Params "pwa") }}
   {{- $url := printf "%s/manifest.json" (strings.TrimPrefix "/" .Site.LanguagePrefix) }}
   {{- $manifest := resources.Get "service-worker/manifest.json" | resources.ExecuteAsTemplate $url . }}
   <link rel="manifest" href="{{ $manifest.RelPermalink }}">

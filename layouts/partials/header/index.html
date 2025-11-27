@@ -72,7 +72,14 @@
           {{- end }}
         </ul>
         {{ partial "header/search-bar" . }}
-        {{- if or (default true .Site.Params.topAppBar.colorToggle) (isset $.Site.Params "fontsize") ( gt (len $.Site.Home.AllTranslations) 1) (.Site.Params.Palettes) (.Site.Params.topAppBar.social) -}}
+        <!-- {{- if or (default true .Site.Params.topAppBar.colorToggle) (isset $.Site.Params "fontsize") ( gt (len $.Site.Home.AllTranslations) 1) (.Site.Params.Palettes) (.Site.Params.topAppBar.social) -}} -->
+{{- if or
+  (default true .Site.Params.topAppBar.colorToggle)
+  (and $.Site.Params (isset $.Site.Params "fontsize"))
+  (gt (len $.Site.Home.AllTranslations) 1)
+  (.Site.Params.Palettes)
+  (.Site.Params.topAppBar.social)
+-}}
         <hr class="d-{{ $expandBreakpoint }}-none">
         <ul class="navbar-nav flex-row flex-wrap align-items-center ms-md-auto">
           {{- partial "header/social-links" . }}

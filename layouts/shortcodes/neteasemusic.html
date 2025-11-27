@@ -1,10 +1,12 @@
 {{- $id := .Get 0 -}}
 {{- $auto := 0 -}}
-{{- if isset .Params 1 -}}
+<!-- {{- if isset .Params 1 -}} -->
+{{- if and .Params (isset .Params 1) -}}
   {{- $auto = cond (.Get 1) 1 0 -}}
 {{- end -}}
 {{- $type := 2 -}}
-{{- if isset .Params 2 -}}
+<!-- {{- if isset .Params 2 -}} -->
+{{- if and .Params (isset .Params 2) -}}
   {{ $type = .Get 2 }}
 {{- end -}}
 <div class="ratio ratio-21x9 neteasemusic mb-4">

@@ -1,4 +1,5 @@
-{{- if isset $.Site.Params "staticman" }}
+<!-- {{- if isset $.Site.Params "staticman" }} -->
+{{- if and $.Site.Params (isset $.Site.Params "staticman") }}
     {{- template "walk-comments" . }}
 
     {{/* generate comments pages */}}
@@ -53,7 +54,8 @@
                     {{/* collect child comments */}}
                     {{- $child := . }}
                     {{/* ensure parent comment exists */}}
-                    {{- if isset $allComments .root_id}}
+                    <!-- {{- if isset $allComments .root_id}} -->
+                    {{- if and $allComments (isset $allComments .root_id) }}
                         {{- $parent := index $comments $child.root_id }}
                         {{- $children := $parent.Children | append $child }}
                         {{- $comments = merge $comments (dict $child.root_id (dict

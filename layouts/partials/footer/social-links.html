@@ -7,8 +7,10 @@
 {{- end }}
 {{- partial "helpers/social-links" (dict
   "links" $social
-  "size" (cond (isset .Site.Menus "footer") "" "fa-2x")
-  "class" (cond (isset .Site.Menus "footer") "justify-content-between mb-2 mt-3" "mb-2 mt-3")
+  <!-- "size" (cond (isset .Site.Menus "footer") "" "fa-2x") -->
+"size" (cond (and .Site.Menus (isset .Site.Menus "footer")) "" "fa-2x")
+"class" (cond (and .Site.Menus (isset .Site.Menus "footer")) "justify-content-between mb-2 mt-3" "mb-2 mt-3")
+  <!-- "class" (cond (isset .Site.Menus "footer") "justify-content-between mb-2 mt-3" "mb-2 mt-3") -->
   "linkClass" "p-0 me-1 mb-2"
   "OutputFormats" $.OutputFormats
   "home" (.GetPage "/") "params" .Site.Params)

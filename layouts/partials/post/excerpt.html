@@ -1,5 +1,6 @@
 {{- $key := "description" }}
-{{- if isset site.Params.post "excerpt" }}
+<!-- {{- if isset site.Params.post "excerpt" }} -->
+{{- if and site.Params.post (isset site.Params.post "excerpt") }}
   {{- $key = site.Params.post.excerpt }}
 {{- end }}
 {{- $useDescription := and (eq $key "description") .Description }}

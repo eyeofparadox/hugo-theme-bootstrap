@@ -109,7 +109,8 @@
 {{- define "post-item" }}
   {{- $thumbnail := false }}
   {{- with .Params.images }}
-    {{ if isset . 0 }}{{ $thumbnail = true }}{{ end }}
+    <!-- {{ if isset . 0 }}{{ $thumbnail = true }}{{ end }} -->
+{{ if and . (isset . 0) }}{{ $thumbnail = true }}{{ end }}
   {{ end }}
   {{- $featured := partialCached "functions/thumbnail" . . }}
   {{- with $featured -}}{{ $thumbnail = true }}{{ end }}
