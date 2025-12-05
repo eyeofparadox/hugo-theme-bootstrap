@@ -5,7 +5,7 @@ module.exports = {
   plugins: [
     autoprefixer,
     ...process.env.HUGO_ENVIRONMENT === 'production'
-      ? [require('./purgecss.config.js').default]
+      // ? [require('./purgecss.config.js').default]
       : [],
   ]
 }
